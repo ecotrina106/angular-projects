@@ -5,17 +5,22 @@
             (click)="greet()" 
             alt="photo" 
             src="https://github.com/ecotrina106.png">
+        <app-games 
+            (addFavEvent)="getFavorite($event)"
+            username={{username}}>
+        </app-games>
+        @if (favGame !== '') {
+            <p> Tu juego favortio es {{favGame}}</p>
+        }
     }@else{
         <p>Inicia sesión</p>
+        <label for="username">
+            Username:
+            <input id="username" type="text" [(ngModel)]="username"/>
+        </label>
         <button (click)="logUser()">Log in</button>
     }
-    <app-games 
-        (addFavEvent)="getFavorite($event)"
-        username={{username}}>
-    </app-games>
-    @if (favGame !== '') {
-        <p> Tu juego favortio es {{favGame}}</p>
-    }
+    
 </section>
 
 

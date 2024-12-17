@@ -9,3 +9,7 @@ img{
     width: 100px;
     border-radius: 50%;
 }
+button{
+    display: block;
+    margin-top: 20px;
+}

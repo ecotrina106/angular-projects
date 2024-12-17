@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { GamesComponent } from '../games/games.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user',
-  imports: [GamesComponent],
+  imports: [GamesComponent,FormsModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  username = 'rodolfo';
+  username = '';
   isLoggedIn = false;
   favGame = '';
 
