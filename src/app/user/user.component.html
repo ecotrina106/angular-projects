@@ -1,6 +1,6 @@
 <section>
     @if (isLoggedIn) {
-        <p>Bienvenido, {{username}}</p>
+        <p>Bienvenido, `{{username | lowercase}}`</p>
         <img
             (click)="greet()" 
             alt="photo" 
@@ -10,8 +10,16 @@
             username={{username}}>
         </app-games>
         @if (favGame !== '') {
-            <p> Tu juego favortio es {{favGame}}</p>
+            <p> Tu juego favortio es {{favGame | reverse}}</p>
         }
+        <p>Autos favoritos: {{display}}</p>
+        <form [formGroup]="emailForm" (ngSubmit)="handleSubmitEmailForm()">
+            <label> Email Reactive Form
+                <input type="email" formControlName="email"/>
+            </label>
+            <button type="submit" [disabled]="!emailForm.valid">Alerta</button>
+        </form>
+        <p>Email: {{emailForm.value.email}}</p>
     }@else{
         <p>Inicia sesión</p>
         <label for="username">
